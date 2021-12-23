@@ -25,7 +25,7 @@ void Boat(double x,double y,double z,double a)
 void Foot(double x,double y,double z)
 {
     glPushMatrix();
-    glColor3d(1,0,0);
+    glColor3d(.5,.5,.5);
     glTranslated(x,y,z);
     glRotated(90,1,0,0);
     glutSolidCube(2);
@@ -89,7 +89,7 @@ void Mouth(double x,double y,double z,double a)
 void Cap(double x,double y,double z)
 {
     glPushMatrix();
-    glColor3d(1,0,0);
+    glColor3d(.5,.5,.5);
     glTranslated(-1.25,8,-30);
     glRotated(90,1,0,0);
     glScalef(5.5,5,6);
