@@ -162,6 +162,7 @@ static void display(void)
     const double a = t*90.0;
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    // this first part makes the object move
     glPushMatrix();
     glTranslatef(walkX,-1,walkY);
 
