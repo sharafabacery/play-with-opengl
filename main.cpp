@@ -28,7 +28,7 @@ GLint walkX=0,walkY=0;
 
 void Boat(double x,double y,double z,double a){
 glPushMatrix();
-        glColor3d(1,0,0);
+        glColor3d(0,0,0);
         glTranslated(x,y,z);
         glRotated(90,1,0,0);
         glRotated(a,0,0,1);
@@ -57,7 +57,7 @@ void Leg(double x,double y,double z,double a){
 }
 void Body(double x,double y,double z){
 glPushMatrix();
-        glColor3d(1,0,0);
+        glColor3d(0,0,0);
         glTranslated(x,y,z);
         glRotated(90,1,0,0);
         glutSolidCube(10);
@@ -116,7 +116,7 @@ glPushMatrix();
 }
 void Shoulder(double x,double y,double z,double a){
 glPushMatrix();
-        glColor3d(1,0,0);
+        glColor3d(0,0,0);
         glTranslated(x,y,z);
         glRotated(90,1,0,0);
         glutSolidCube(3);
@@ -135,7 +135,7 @@ glPushMatrix();
 
 void Hand(double x,double y,double z,double a){
 glPushMatrix();
-        glColor3d(1,0,0);
+        glColor3d(0,0,0);
         glTranslated(x,y,z);
         glRotated(90,1,0,0);
         glRotated(a,0,0,1);
