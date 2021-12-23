@@ -24,7 +24,65 @@ static int slices = 16;
 static int stacks = 16;
 
 /* GLUT callback Handlers */
-GLint walkX=0,walkY=0,lookX=0,lookY=0;
+GLint walkX=0,walkY=0;
+
+void Boat(double x,double y,double z,double a){
+glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,0,0);
+        glRotated(a,0,0,1);
+        glutSolidTorus(2,1,slices,stacks);
+    glPopMatrix();
+}
+void Foot(double x,double y,double z){
+ glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,0,0);
+        glutSolidCube(2);
+    glPopMatrix();
+
+}
+
+void Leg(double x,double y,double z,double a){
+        glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,0,0);
+        glRotated(a,0,0,1);
+        gluCylinder(gluNewQuadric(),.5,.5,7,slices,stacks);
+    glPopMatrix();
+
+}
+void Body(double x,double y,double z){
+glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,0,0);
+        glutSolidCube(10);        //glRotated(a,0,0,1);
+
+    glPopMatrix();
+}
+
+void Nose(double x,double y,double z,double a){
+glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,0,0);
+        glRotated(a,1,0,0);
+        glutSolidOctahedron();
+    glPopMatrix();
+}
+void Eye(double x,double y,double z,double a){
+ glColor3d(1,0,0);
+        glTranslated(1,8,-25);
+        glRotated(90,1,0,0);
+        glScalef(1.5,1.5,1.5);
+        glRotated(a,0,0,1);
+        glutSolidIcosahedron();
+}
+
 static void resize(int width, int height)
 {
     const float ar = (float) width / (float) height;
@@ -47,83 +105,27 @@ static void display(void)
     glPushMatrix();
     glTranslatef(walkX,-1,walkY);
 
-   glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(2.5,-10,-30);
-        glRotated(90,1,0,0);
-        glRotated(a,0,0,1);
-        glutSolidTorus(2,1,slices,stacks);
-    glPopMatrix();
+        Boat(2.5,-10,-30,a);
+        Boat(-5.5,-10,-30,a);
 
-    glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-5.5,-10,-30);
-        glRotated(90,1,0,0);
-        glRotated(a,0,0,1);
-        glutSolidTorus(2,1,slices,stacks);
-    glPopMatrix();
-       glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(2.5,-7,-30);
-        glRotated(90,1,0,0);
-        //glRotated(a,0,0,1);
-        glutSolidCube(2);
-    glPopMatrix();
+        Foot(2.5,-7,-30);
+        Foot(-5.5,-7,-30);
 
-    glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-5.5,-7,-30);
-        glRotated(90,1,0,0);
-        //glRotated(a,0,0,1);
-        glutSolidCube(2);
-    glPopMatrix();
-       glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(2.5,.5,-30);
-        glRotated(90,1,0,0);
-        glRotated(a,0,0,1);
-        gluCylinder(gluNewQuadric(),.5,.5,7,slices,stacks);
-    glPopMatrix();
+        Leg(2.5,.5,-30,a);
+        Leg(-5.5,.5,-30,a);
 
-    glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-5.5,.5,-30);
-        glRotated(90,1,0,0);
-        glRotated(a,0,0,1);
-         gluCylinder(gluNewQuadric(),.5,.5,7,slices,stacks);
-    glPopMatrix();
+        Body(-1.25,5,-30);
 
-    glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-1.25,5,-30);
-        glRotated(90,1,0,0);
-        glutSolidCube(10);        //glRotated(a,0,0,1);
+        Nose(-1.25,5,-25,a);
 
-    glPopMatrix();
-    glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-1.25,5,-25);
-        glRotated(90,1,0,0);
-        glRotated(a,1,0,0);
-        glutSolidOctahedron();
-    glPopMatrix();
-   glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(1,8,-25);
-        glRotated(90,1,0,0);
-        glScalef(1.5,1.5,1.5);
-        glRotated(a,0,0,1);
-        glutSolidIcosahedron();
-    glPopMatrix();
 
- glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-3.5,8,-25);
-        glRotated(90,1,0,0);
-        glScalef(1.5,1.5,1.5);
-        glRotated(a,0,0,1);
-        glutSolidIcosahedron();
-    glPopMatrix();
+
+
+       Eye(1,8,-25);
+
+
+      Eye(-3.5,8,-25);
+
 
     glPushMatrix();
         glColor3d(1,0,0);
