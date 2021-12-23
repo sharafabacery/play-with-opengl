@@ -165,36 +165,52 @@ static void display(void)
     glPushMatrix();
     glTranslatef(walkX,-1,walkY);
 
+    //Right
     Boat(2.5,-10,-30,a);
+    //Left
     Boat(-5.5,-10,-30,a);
 
+    //Right
     Foot(2.5,-7,-30);
+    //Left
     Foot(-5.5,-7,-30);
 
+    //Right
     Leg(2.5,.5,-30,a);
+    //Left
     Leg(-5.5,.5,-30,a);
 
     Body(-1.25,5,-30);
 
     Nose(-1.25,5,-25,a);
 
+    //Right
     Eye(1,8,-25,a);
+    //Left
     Eye(-3.5,8,-25,a);
 
     Mouth(-1.2,2,-24,a);
 
     Cap(-1.25,8,-30);
 
+    //Right
     ShoulderTemp(-10,6,-28,a);
+    //Left
     ShoulderTemp(-3,6,-28,a);
 
+    //Right
     Shoulder(7.8,6,-28,a);
+    //Left
     Shoulder(-10.8,6,-28,a);
 
+    //Right
     Arm(8,5,-28,a);
+    //Left
     Arm(-11,5,-28,a);
 
+    //Right
     Hand(-11,-2,-28,a);
+    //Left
     Hand(8,-2,-28,a);
 
 
