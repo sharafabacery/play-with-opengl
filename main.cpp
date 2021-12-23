@@ -60,7 +60,7 @@ glPushMatrix();
         glColor3d(1,0,0);
         glTranslated(x,y,z);
         glRotated(90,1,0,0);
-        glutSolidCube(10);        //glRotated(a,0,0,1);
+        glutSolidCube(10);
 
     glPopMatrix();
 }
@@ -75,12 +75,74 @@ glPushMatrix();
     glPopMatrix();
 }
 void Eye(double x,double y,double z,double a){
- glColor3d(1,0,0);
-        glTranslated(1,8,-25);
+ glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
         glRotated(90,1,0,0);
         glScalef(1.5,1.5,1.5);
         glRotated(a,0,0,1);
         glutSolidIcosahedron();
+    glPopMatrix();
+}
+void Mouth(double x,double y,double z,double a){
+    glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,1,10);
+        glRotated(a,0,0,1);
+        glutSolidTorus(.25,1,slices,stacks);
+    glPopMatrix();
+}
+void Cap(double x,double y,double z){
+glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(-1.25,8,-30);
+        glRotated(90,1,0,0);
+        glScalef(5.5,5,6);
+        glutSolidOctahedron();
+
+        glPopMatrix();
+}
+void ShoulderTemp(double x,double y,double z,double a){
+glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,10,1);
+        glRotated(a,0,0,1);
+         gluCylinder(gluNewQuadric(),.5,.5,10,slices,stacks);
+    glPopMatrix();
+
+
+}
+void Shoulder(double x,double y,double z,double a){
+glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,0,0);
+        glutSolidCube(3);
+    glPopMatrix();
+
+}
+void Arm(double x,double y,double z,double a){
+glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,0,0);
+        glRotated(a,0,0,1);
+        gluCylinder(gluNewQuadric(),.5,.5,7,slices,stacks);
+    glPopMatrix();
+}
+
+void Hand(double x,double y,double z,double a){
+glPushMatrix();
+        glColor3d(1,0,0);
+        glTranslated(x,y,z);
+        glRotated(90,1,0,0);
+        glRotated(a,0,0,1);
+        glScalef(2,2,2);
+        glutSolidIcosahedron();
+    glPopMatrix();
+
 }
 
 static void resize(int width, int height)
@@ -118,95 +180,25 @@ static void display(void)
 
         Nose(-1.25,5,-25,a);
 
+        Eye(1,8,-25,a);
+        Eye(-3.5,8,-25,a);
 
+        Mouth(-1.2,2,-24,a);
 
+        Cap(-1.25,8,-30);
 
-       Eye(1,8,-25);
+        ShoulderTemp(-10,6,-28,a);
+        ShoulderTemp(-3,6,-28,a);
 
+        Shoulder(7.8,6,-28,a);
+        Shoulder(-10.8,6,-28,a);
 
-      Eye(-3.5,8,-25);
+        Arm(8,5,-28,a);
+        Arm(-11,5,-28,a);
 
+        Hand(-11,-2,-28,a);
+        Hand(8,-2,-28,a);
 
-    glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-1.2,2,-24);
-        glRotated(90,1,1,10);
-        glRotated(a,0,0,1);
-        glutSolidTorus(.25,1,slices,stacks);
-    glPopMatrix();
-
-        glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-1.25,8,-30);
-        glRotated(90,1,0,0);
-        glScalef(5.5,5,6);
-        glutSolidOctahedron();
-        //glRotated(a,0,0,1);
-
-        glPopMatrix();
-
-glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-10,6,-28);
-        glRotated(90,1,10,1);
-        glRotated(a,0,0,1);
-         gluCylinder(gluNewQuadric(),.5,.5,10,slices,stacks);
-    glPopMatrix();
-
-glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-3,6,-28);
-        glRotated(90,1,10,1);
-        glRotated(a,0,0,1);
-         gluCylinder(gluNewQuadric(),.5,.5,10,slices,stacks);
-    glPopMatrix();
-
-
-    glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(7.8,6,-28);
-        glRotated(90,1,0,0);
-        //glRotated(a,0,0,1);
-        glutSolidCube(3);
-    glPopMatrix();
-glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-10.8,6,-28);
-        glRotated(90,1,0,0);
-        //glRotated(a,0,0,1);
-        glutSolidCube(3);
-    glPopMatrix();
-       glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(8,5,-28);
-        glRotated(90,1,0,0);
-        glRotated(a,0,0,1);
-        gluCylinder(gluNewQuadric(),.5,.5,7,slices,stacks);
-    glPopMatrix();
- glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-11,5,-28);
-        glRotated(90,1,0,0);
-        glRotated(a,0,0,1);
-        gluCylinder(gluNewQuadric(),.5,.5,7,slices,stacks);
-    glPopMatrix();
- glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(-11,-2,-28);
-        glRotated(90,1,0,0);
-        glRotated(a,0,0,1);
-        glScalef(2,2,2);
-        glutSolidIcosahedron();
-    glPopMatrix();
-glPushMatrix();
-        glColor3d(1,0,0);
-        glTranslated(8,-2,-28);
-        glRotated(90,1,0,0);
-        glScalef(2,2,2);
-        glRotated(a,0,0,1);
-
-        glutSolidIcosahedron();
-    glPopMatrix();
 
 glPopMatrix();
 
