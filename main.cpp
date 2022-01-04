@@ -11,7 +11,15 @@ static int stacks = 16;
 
 /* GLUT callback Handlers */
 GLint walkX=0,walkY=0;
-
+void Background()
+{
+    glPushMatrix();
+    glColor3d(0,0,3);
+    glTranslated(0,0,-85);
+    glRotated(90,1,0,0);
+    glutSolidCube(95);
+    glPopMatrix();
+}
 void Boat(double x,double y,double z,double a)
 {
     glPushMatrix();
@@ -163,6 +171,8 @@ static void display(void)
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     // this first part makes the object move
+
+    Background();
     glPushMatrix();
     glTranslatef(walkX,-1,walkY);
 
